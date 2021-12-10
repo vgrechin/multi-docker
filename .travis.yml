@@ -32,7 +32,7 @@ deploy:
   app: "Multidocker"
   env: "Multidocker-env"
   bucket_name: elasticbeanstalk-eu-north-1-334453841210
-  bucker_path: "DockerReact"
+  bucket_path: "Multidocker"
   on:
     branch: master
 
