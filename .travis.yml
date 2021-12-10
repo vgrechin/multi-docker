@@ -6,10 +6,10 @@ before_install:
   - docker build -t vgrechin/react-test -f ./client/Dockerfile.dev ./client
 
 script:
-  - cd client
+  - pushd client
   - npm install
-  - docker run -e CI=true -v $(pwd)/client:/usr/app vgrechin/react-test npm test -- --coverage
-  - cd ..
+  - docker run -e CI=true -v $(pwd):/usr/app vgrechin/react-test npm test -- --coverage
+  - popd
 
 after_success:
   - docker build -t vgrechin/multi-client ./client
