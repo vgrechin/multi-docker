@@ -23,3 +23,16 @@ after_success:
   - docker push vgrechin/multi-nginx
   - docker push vgrechin/multi-server
   - docker push vgrechin/multi-worker
+
+deploy:
+  provider: elasticbeanstalk
+  access_key_id: "$AWS_ACCESS_KEY"
+  secret_access_key: "$AWS_SECRET_KEY"
+  region: "eu-north-1"
+  app: "Multidocker"
+  env: "Multidocker-env"
+  bucket_name: elasticbeanstalk-eu-north-1-334453841210
+  bucker_path: "DockerReact"
+  on:
+    branch: master
+
